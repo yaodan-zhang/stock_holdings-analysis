@@ -32,7 +32,8 @@ namespace myStockList {
         // View the list of stocks sorted by stock ticker
         void view_by_ticker() {
             sort(list.begin(), list.end(), comp_by_ticker_ptr);
-            cout << 
+            const int fieldWidth = myList::listType<stockType>::fieldWidth;
+            cout << setw(fieldWidth) << "Symbol"
         }
 
         // View the list of stocks sorted by one-day gain

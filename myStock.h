@@ -63,18 +63,21 @@ class stockType {
 };
 
 // Unique pointers comparison functions
-bool comp_by_ticker_ptr (unique_ptr<stockType> const &a, unique_ptr<stockType> const &b) {
+bool comp_by_ticker_ptr (unique_ptr<stockType> const &a, unique_ptr<stockType> const &b) 
+{
     return (a->ticker) < (b->ticker);
 }
 
-bool comp_by_gain_ptr (unique_ptr<stockType> const &a, unique_ptr<stockType> const &b) {
-    return (a->percent_gain()) < (b->percent_gain());
+bool comp_by_gain_ptr (unique_ptr<stockType> const &a, unique_ptr<stockType> const &b)
+{
+    return (a->percent_gain()) > (b->percent_gain());
 }
 
 // Print the stock info in format:
 // symbol openingPrice closingPrice todayHigh todayLow prevClose percent_gain volume
 // rounded to 2 decimal places.
-ostream& operator << (ostream& os, stockType const & s) {
+ostream& operator << (ostream& os, stockType const & s) 
+{
     // Set the fixed width for each field
     const int fieldWidth = myList::listType<stockType>::fieldWidth;
     os << setw(fieldWidth) << s.ticker
@@ -84,14 +87,15 @@ ostream& operator << (ostream& os, stockType const & s) {
             << setw(fieldWidth) << fixed << setprecision(2) << s.t_low
             << setw(fieldWidth) << fixed << setprecision(2) << s.prev_close
             << setw(fieldWidth) << fixed << setprecision(2) << s.percent_gain() << "%"
-            << setw(fieldWidth) << s.volume << endl;;
+            << setw(fieldWidth) << s.volume << endl;
 }
 
 // Allow file >> myStock where file is in format:
 // symbol openingPrice closingPrice todayHigh todayLow prevClose volume
 // For example, 
 // MSMT 112.50 115.75 116.50 111.75 113.50 6723823
-ifstream& operator >> (ifstream& infile, stockType & new_s) {
+ifstream& operator >> (ifstream& infile, stockType & new_s) 
+{
     if (infile.is_open()) {
         string line;
         regex pattern(R"((\w+) (\d+\.\d*) (\d+\.\d*) (\d+\.\d*) (\d+\.\d*) (\d+\.\d*) (\d+))");
