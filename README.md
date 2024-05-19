@@ -1,4 +1,4 @@
-# Real-time Algorithmic Trading Environment
+# Real-time Algorithmic Trading Environment: this repo has been moved to algo-trading-env repo!
 
 Originated from an idea in [stock market program](https://www.netdevmike.com/project/c-stock-market-program), I build an algorithmic trading environment that mimics real-time ticks input where I calculate technical indicators (alphas) on their candlestick data and sort them to display. The result can be further feeded to conduct automatic trading. The asset types I supported are equity/stock, index, ETF, and option.
 
